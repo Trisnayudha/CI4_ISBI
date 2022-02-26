@@ -37,8 +37,10 @@ $routes->get('/', 'Home::index');
 
 
 //Berita Controller
-$routes->get('/Berita', 'Berita\Berita::index');
-$routes->get('/Berita/(:any)/edit', 'Berita\Berita::edit/$1');
+$routes->get('/Berita', 'Berita\BeritaController::index');
+$routes->get('/Berita/create', 'Berita\BeritaController::create');
+$routes->get('/Berita/(:segment)', 'Berita\BeritaController::edit/$1');
+$routes->post('/Berita/store', 'Berita\BeritaController::store');
 
 //Kategori Controller
 $routes->get('/Kategori', 'Kategori\Kategori::index');

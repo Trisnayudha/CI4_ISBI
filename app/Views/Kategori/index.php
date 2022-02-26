@@ -17,8 +17,9 @@
             <h2 class="section-title">This is Example Page</h2>
             <p class="section-lead">This page is just an example for you to create your own page.</p>
             <div class="card">
-                <div class="card-header">
-                    <h4>Example Card</h4>
+                <div class="card-header d-flex justify-content-end">
+                    <a href="<?= base_url('Berita/create') ?>" type="button" class="btn btn-success" style="color: white;"><i class="fa fa-plus"></i>
+                        Tambah Kategori Berita</a>
                 </div>
                 <div class="card-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

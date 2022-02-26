@@ -16,8 +16,9 @@
         <div class="section-body">
             <h2 class="section-title">Berita List</h2>
             <div class="card">
-                <div class="card-header">
-                    <h4>Tambah data</h4>
+                <div class="card-header d-flex justify-content-end">
+                    <a href="<?= base_url('Berita/create') ?>" type="button" class="btn btn-success" style="color: white;"><i class="fa fa-plus"></i>
+                        Tambah Berita</a>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -40,7 +41,7 @@
                                     <td><?= $a['title'] ?></td>
                                     <td><?= $a['user_id'] ?></td>
                                     <td><?= $a['created_at'] ?></td>
-                                    <td><a href="<?= base_url('Berita/' . $a['id'] . '/edit') ?>" class="btn btn-success">Edit</a> </td>
+                                    <td><a href="<?= base_url('Berita/' . $a['slug']) ?>" class="btn btn-success">Edit</a> </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -50,4 +51,9 @@
         </div>
     </section>
 </div>
+<?= $this->endSection(); ?>
+
+<?= $this->section('script') ?>
+
+
 <?= $this->endSection(); ?>

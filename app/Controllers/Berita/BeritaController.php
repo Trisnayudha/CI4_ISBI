@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Controllers\Berita;
+
+use App\Controllers\BaseController;
+use App\Models\Berita\BeritaModel;
+use App\Models\Berita\BeritaService;
+
+class BeritaController extends BaseController
+{
+    protected $model;
+    protected $service;
+    public function __construct()
+    {
+        $this->model = new BeritaModel();
+        $this->service = new BeritaService();
+    }
+    public function index()
+    {
+
+        $data = [
+            'title' => 'Berita | ISBI',
+            'berita' => $this->service->getModel(null)
+        ];
+
+        return view('Berita/index', $data);
+    }
+
+    public function edit($slug = null)
+    {
+        $data = [
+            'title' => 'Edit Berita | ISBI',
+            'berita' => $this->service->getModel($slug)
+        ];
+
+        //Jika data tidak ada
+        if (empty($data['berita'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita ' . $slug . ' tidak ada');
+        }
+        return view('Berita/edit', $data);
+    }
+
+    public function create()
+    {
+        $data = [
+            'title' => 'Tambah Berita | ISBI',
+        ];
+
+        return view('Berita/create', $data);
+    }
+
+    public function store()
+    {
+
+        $slug = url_title($this->request->getVar('title'), '-', true);
+        $this->service->save([
+            'title' => $this->request->getVar('title'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
+            'slug' => $slug,
+            'kategori_id' => $this->request->getVar('kategori_id'),
+            'user_id' => '1',
+            'thumbl' => $this->request->getVar('thumbl'),
+            'status' => $this->request->getVar('status'),
+        ]);
+
+        return redirect()->to(base_url('Berita'));
+    }
+
+    public function update()
+    {
+        //
+    }
+}

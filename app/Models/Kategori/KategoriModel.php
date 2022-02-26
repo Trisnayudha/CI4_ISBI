@@ -1,31 +1,23 @@
 <?php
 
-namespace App\Models\Berita;
+namespace App\Models\Kategori;
 
 use CodeIgniter\Model;
 
-class BeritaModel extends Model
+class KategoriModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'berita';
+    protected $table            = 'kategori';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
-        'title',
-        'deskripsi',
-        'kategori_id',
-        'user_id',
-        'slug',
-        'thumbl',
-        'status'
-    ];
+    protected $allowedFields    = [];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
