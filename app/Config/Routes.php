@@ -31,7 +31,17 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+//Home Controller
 $routes->get('/', 'Home::index');
+
+
+//Berita Controller
+$routes->get('/Berita', 'Berita\Berita::index');
+$routes->get('/Berita/(:any)/edit', 'Berita\Berita::edit/$1');
+
+//Kategori Controller
+$routes->get('/Kategori', 'Kategori\Kategori::index');
 
 /*
  * --------------------------------------------------------------------
