@@ -17,7 +17,7 @@
             <h2 class="section-title">Berita List</h2>
             <div class="card">
                 <div class="card-header">
-                    <h4>Simple</h4>
+                    <h4>Tambah data</h4>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -31,20 +31,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@ddd</td>
-                            </tr>
-
+                            <?php
+                            $no = 1;
+                            foreach ($berita as $a) :
+                            ?>
+                                <tr>
+                                    <th scope="row"><?= $no++; ?></th>
+                                    <td><?= $a['title'] ?></td>
+                                    <td><?= $a['user_id'] ?></td>
+                                    <td><?= $a['created_at'] ?></td>
+                                    <td><a href="<?= base_url('Berita/' . $a['id'] . '/edit') ?>" class="btn btn-success">Edit</a> </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-</div>
-</section>
+    </section>
 </div>
 <?= $this->endSection(); ?>
