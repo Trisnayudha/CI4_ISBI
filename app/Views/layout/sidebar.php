@@ -17,5 +17,7 @@
                     <li><a class="nav-link" href="<?= base_url('Kategori') ?>">Kategori Berita</a></li>
                 </ul>
             </li>
+            <li class="menu-header">Management Users</li>
+            <li><a class="nav-link" href="<?= base_url('Users') ?>"><i class="fa fa-users"></i> <span>Pengguna</span></a></li>
     </aside>
 </div>

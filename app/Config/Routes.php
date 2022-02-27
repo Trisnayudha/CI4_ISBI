@@ -54,6 +54,14 @@ $routes->post('/Kategori/store', 'Kategori\KategoriController::store');
 $routes->delete('/Kategori/(:num)', 'Kategori\KategoriController::destroy/$1');
 $routes->post('/Kategori/update/(:num)', 'Kategori\KategoriController::update/$1');
 
+//Users Controller
+
+$routes->get('/Users', 'Users\UserController::index');
+$routes->get('/Users/create', 'Users\UserController::create');
+$routes->get('/Users/(:any)', 'Users\UserController::edit/$1');
+$routes->post('/Users/store', 'Users\UserController::store');
+$routes->delete('/Users/(:num)', 'Users\UserController::destroy/$1');
+$routes->post('/Users/update/(:num)', 'Users\UserController::update/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
