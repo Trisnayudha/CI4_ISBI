@@ -14,23 +14,46 @@
         </div>
 
         <div class="section-body">
-            <h2 class="section-title">This is Example Page</h2>
-            <p class="section-lead">This page is just an example for you to create your own page.</p>
-            <div class="card">
+            <h2 class="section-title">Kategori List</h2>
+            <?php
+            if (session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-info" role="alert">
+                    <?= session()->getFlashdata('pesan') ?>
+                </div>
+            <?php endif; ?><div class="card">
                 <div class="card-header d-flex justify-content-end">
-                    <a href="<?= base_url('Berita/create') ?>" type="button" class="btn btn-success" style="color: white;"><i class="fa fa-plus"></i>
+                    <a href="<?= base_url('Kategori/create') ?>" type="button" class="btn btn-success" style="color: white;"><i class="fa fa-plus"></i>
                         Tambah Kategori Berita</a>
                 </div>
                 <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                <div class="card-footer bg-whitesmoke">
-                    This is card footer
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Kategori Berita</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            foreach ($kategori as $a) :
+                            ?>
+                                <tr>
+                                    <th scope="row"><?= $no++; ?></th>
+                                    <td><?= $a['nama_kategori'] ?></td>
+                                    <td>
+                                        <a href="<?= base_url('Kategori/' . $a['id']) ?>" class="btn btn-success">Edit</a>
+                                        <form action="Kategori/<?= $a['id'] ?>" method="POST" class="d-inline">
+                                            <?= csrf_field() ?>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

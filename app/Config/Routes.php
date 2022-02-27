@@ -47,7 +47,7 @@ $routes->post('/Berita/update/(:num)', 'Berita\BeritaController::update/$1');
 //Kategori Controller
 $routes->get('/Kategori', 'Kategori\KategoriController::index');
 $routes->get('/Kategori/create', 'Kategori\KategoriController::create');
-$routes->get('/Kategori/(:segment)', 'Kategori\KategoriController::edit/$1');
+$routes->get('/Kategori/(:any)', 'Kategori\KategoriController::edit/$1');
 $routes->post('/Kategori/store', 'Kategori\KategoriController::store');
 $routes->delete('/Kategori/(:num)', 'Kategori\KategoriController::destroy/$1');
 $routes->post('/Kategori/update/(:num)', 'Kategori\KategoriController::update/$1');

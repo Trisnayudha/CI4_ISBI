@@ -16,9 +16,6 @@
         <div class="section-body">
             <h2 class="section-title">Berita List</h2>
             <?php
-
-            use CodeIgniter\Filters\CSRF;
-
             if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-info" role="alert">
                     <?= session()->getFlashdata('pesan') ?>

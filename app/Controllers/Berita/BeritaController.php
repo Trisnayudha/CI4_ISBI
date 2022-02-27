@@ -3,16 +3,14 @@
 namespace App\Controllers\Berita;
 
 use App\Controllers\BaseController;
-use App\Models\Berita\BeritaModel;
 use App\Models\Berita\BeritaService;
 
 class BeritaController extends BaseController
 {
-    protected $model;
+
     protected $service;
     public function __construct()
     {
-        $this->model = new BeritaModel();
         $this->service = new BeritaService();
     }
     public function index()
