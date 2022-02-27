@@ -24,20 +24,7 @@ class BeritaController extends BaseController
         return view('Berita/index', $data);
     }
 
-    public function edit($slug = null)
-    {
-        $data = [
-            'title' => 'Edit Berita | ISBI',
-            'berita' => $this->service->getModel($slug),
-            'validation' => \Config\Services::validation()
-        ];
 
-        //Jika data tidak ada
-        if (empty($data['berita'])) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita ' . $slug . ' tidak ada');
-        }
-        return view('Berita/edit', $data);
-    }
 
     public function create()
     {
@@ -51,7 +38,6 @@ class BeritaController extends BaseController
 
     public function store()
     {
-
         if (!$this->validate(
             [
                 'title' => [
@@ -98,6 +84,21 @@ class BeritaController extends BaseController
         return redirect()->to(base_url('Berita'));
     }
 
+    public function edit($slug = null)
+    {
+        $data = [
+            'title' => 'Edit Berita | ISBI',
+            'berita' => $this->service->getModel($slug),
+            'validation' => \Config\Services::validation()
+        ];
+
+        //Jika data tidak ada
+        if (empty($data['berita'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita ' . $slug . ' tidak ada');
+        }
+        return view('Berita/edit', $data);
+    }
+
     public function update($id)
     {
 
@@ -117,7 +118,6 @@ class BeritaController extends BaseController
 
     public function destroy($id)
     {
-        // dd($id);
         $this->service->delete($id);
         session()->setFlashdata('pesan', 'Data Berita Berhasil dihapus');
         return redirect()->to(base_url('Berita'));
