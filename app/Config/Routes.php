@@ -41,6 +41,8 @@ $routes->get('/Berita', 'Berita\BeritaController::index');
 $routes->get('/Berita/create', 'Berita\BeritaController::create');
 $routes->get('/Berita/(:segment)', 'Berita\BeritaController::edit/$1');
 $routes->post('/Berita/store', 'Berita\BeritaController::store');
+$routes->delete('/Berita/(:num)', 'Berita\BeritaController::destroy/$1');
+$routes->post('/Berita/update/(:num)', 'Berita\BeritaController::update/$1');
 
 //Kategori Controller
 $routes->get('/Kategori', 'Kategori\Kategori::index');

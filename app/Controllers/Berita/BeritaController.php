@@ -30,7 +30,8 @@ class BeritaController extends BaseController
     {
         $data = [
             'title' => 'Edit Berita | ISBI',
-            'berita' => $this->service->getModel($slug)
+            'berita' => $this->service->getModel($slug),
+            'validation' => \Config\Services::validation()
         ];
 
         //Jika data tidak ada
@@ -95,12 +96,32 @@ class BeritaController extends BaseController
             'thumbl' => $this->request->getVar('thumbl'),
             'status' => $this->request->getVar('status'),
         ]);
-        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
+        session()->setFlashdata('pesan', 'Data Berita Berhasil ditambahkan');
         return redirect()->to(base_url('Berita'));
     }
 
-    public function update()
+    public function update($id)
     {
-        //
+
+        $slug = url_title($this->request->getVar('title'), '-', true);
+        $this->service->save([
+            'id' => $id,
+            'title' => $this->request->getVar('title'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
+            'slug' => $slug,
+            'kategori_id' => $this->request->getVar('kategori_id'),
+            'thumbl' => $this->request->getVar('thumbl'),
+            'status' => $this->request->getVar('status'),
+        ]);
+        session()->setFlashdata('pesan', 'Data Berita Berhasil diubah');
+        return redirect()->to(base_url('Berita'));
+    }
+
+    public function destroy($id)
+    {
+        // dd($id);
+        $this->service->delete($id);
+        session()->setFlashdata('pesan', 'Data Berita Berhasil dihapus');
+        return redirect()->to(base_url('Berita'));
     }
 }

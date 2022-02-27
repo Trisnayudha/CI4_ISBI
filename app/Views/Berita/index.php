@@ -15,9 +15,13 @@
 
         <div class="section-body">
             <h2 class="section-title">Berita List</h2>
-            <?php if (session()->getFlashdata('pesan')) : ?>
+            <?php
+
+            use CodeIgniter\Filters\CSRF;
+
+            if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-info" role="alert">
-                    Data Berhasil ditambahkan
+                    <?= session()->getFlashdata('pesan') ?>
                 </div>
             <?php endif; ?>
             <div class="card">
@@ -46,7 +50,14 @@
                                     <td><?= $a['title'] ?></td>
                                     <td><?= $a['user_id'] ?></td>
                                     <td><?= $a['created_at'] ?></td>
-                                    <td><a href="<?= base_url('Berita/' . $a['slug']) ?>" class="btn btn-success">Edit</a> </td>
+                                    <td>
+                                        <a href="<?= base_url('Berita/' . $a['slug']) ?>" class="btn btn-success">Edit</a>
+                                        <form action="Berita/<?= $a['id'] ?>" method="POST" class="d-inline">
+                                            <?= csrf_field() ?>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

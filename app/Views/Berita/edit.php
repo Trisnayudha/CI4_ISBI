@@ -16,7 +16,8 @@
 
         <div class="card">
             <div class="card-body">
-                <form action="<?= base_url('Berita/update') ?>" method="Post">
+                <form action="<?= base_url('Berita/update/' . $berita['id']) ?>" method="Post">
+                    <input type="hidden" name="slug" value="<?= $berita['slug'] ?>">
                     <?= csrf_field(); ?>
                     <div class="mb-3">
                         <label class="form-label">Judul Berita</label>
