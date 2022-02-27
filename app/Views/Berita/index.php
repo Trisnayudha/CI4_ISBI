@@ -15,6 +15,11 @@
 
         <div class="section-body">
             <h2 class="section-title">Berita List</h2>
+            <?php if (session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-info" role="alert">
+                    Data Berhasil ditambahkan
+                </div>
+            <?php endif; ?>
             <div class="card">
                 <div class="card-header d-flex justify-content-end">
                     <a href="<?= base_url('Berita/create') ?>" type="button" class="btn btn-success" style="color: white;"><i class="fa fa-plus"></i>

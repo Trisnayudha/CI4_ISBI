@@ -44,6 +44,7 @@ class BeritaController extends BaseController
     {
         $data = [
             'title' => 'Tambah Berita | ISBI',
+            'validation' => \Config\Services::validation()
         ];
 
         return view('Berita/create', $data);
@@ -51,6 +52,38 @@ class BeritaController extends BaseController
 
     public function store()
     {
+
+        if (!$this->validate(
+            [
+                'title' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Judul Harus diisi'
+                    ]
+                ],
+                'deskripsi' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Deskripsi Harus diisi'
+                    ]
+                ],
+                'kategori_id' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kategori Harus diisi'
+                    ]
+                ],
+                'thumbl' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Image Harus diisi'
+                    ]
+                ],
+            ]
+        )) {
+            $validation = \Config\Services::validation();
+            return redirect()->to(base_url('Berita/create'))->withInput()->with('validation', $validation);
+        };
 
         $slug = url_title($this->request->getVar('title'), '-', true);
         $this->service->save([
@@ -62,7 +95,7 @@ class BeritaController extends BaseController
             'thumbl' => $this->request->getVar('thumbl'),
             'status' => $this->request->getVar('status'),
         ]);
-
+        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
         return redirect()->to(base_url('Berita'));
     }
 

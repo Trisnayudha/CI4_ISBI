@@ -19,23 +19,35 @@
                     <?= csrf_field(); ?>
                     <div class="mb-3">
                         <label class="form-label">Judul Berita</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="Judul Berita Acara">
+                        <input type="text" class="form-control <?= ($validation->hasError('title')) ? 'is-invalid' : ''; ?>" id="title" name="title" placeholder="Judul Berita Acara" value="<?= old('title') ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('title') ?>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Deskripsi</label>
-                        <textarea class="form-control" id="deskripsi" name="deskripsi"></textarea>
+                        <textarea class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" id="deskripsi" name="deskripsi" value="<?= old('deskripsi') ?>"></textarea>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('deskripsi') ?>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Kategori Berita</label>
-                        <select name="kategori_id" id="kategori_id" class="form-control">
+                        <select name="kategori_id" id="kategori_id" class="form-control <?= ($validation->hasError('kategori_id')) ? 'is-invalid' : ''; ?>">
                             <option value="">Pilih Kategori</option>
                             <option value="1">Kategori 1</option>
                             <option value="2">Kategori 2</option>
                         </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('kategori_id') ?>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Image</label>
-                        <input class="form-control" type="file" id="thumbl" name="thumbl">
+                        <input class="form-control <?= ($validation->hasError('thumbl')) ? 'is-invalid' : ''; ?>" type="file" id="thumbl" name="thumbl">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('thumbl') ?>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Status</label>
