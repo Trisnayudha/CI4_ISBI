@@ -35,6 +35,8 @@ $routes->setAutoRoute(true);
 //Home Controller
 $routes->get('/', 'Home::index');
 
+$routes->get('/Dashboard', 'Dashboard\DashboardController::index');
+
 
 //Berita Controller
 $routes->get('/Berita', 'Berita\BeritaController::index');
