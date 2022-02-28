@@ -48,7 +48,7 @@
                                     <td><?= $a['role'] ?></td>
                                     <td>
                                         <a href="<?= base_url('Users/' . $a['id']) ?>" class="btn btn-success">Edit</a>
-                                        <form action="Users/.<?= $a['id'] ?>" method="POST" class="d-inline">
+                                        <form action="Users/<?= $a['id'] ?>" method="POST" class="d-inline">
                                             <?= csrf_field() ?>
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Delete</button>

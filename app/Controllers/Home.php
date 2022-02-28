@@ -6,12 +6,11 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        return view('portal/beranda/index.php');
     }
 
-    public function coba($payload = '')
+    public function login()
     {
-
-        echo "hello $payload";
+        return view('login/sign.php');
     }
 }

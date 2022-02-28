@@ -1,0 +1,180 @@
+body {
+  background: #f2f3f7;
+}
+
+/*--------------------------------------------------------------
+  # Ngacapi
+  --------------------------------------------------------------*/
+.ngacapi .container {
+  box-shadow: 0 5px 25px 0 rgba(214, 215, 216, 0.6);
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: inset -3px -3px 5px #ffffff70, 3px 3px 15px #00000070;
+}
+.ngacapi .ratio {
+  margin-top: 30px;
+  margin-left: 12px;
+}
+.ngacapi .ratio iframe {
+  border-radius: 5px;
+}
+.ngacapi .container .title a {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+  font-family: "Pacifico", cursive;
+}
+.ngacapi .description {
+  line-height: 2;
+}
+.ngacapi .description li {
+  list-style: circle;
+}
+.ngacapi .description li a {
+  text-decoration: none;
+  color: black;
+  font-family: "Exo 2", sans-serif;
+}
+/*--------------------------------------------------------------
+  # Ngacapi End
+  --------------------------------------------------------------*/
+
+/* button Lainnya */
+.Tlainnya {
+  margin-top: 20px;
+}
+.Tlainnya a {
+  display: grid;
+  height: 50px;
+  width: 250px;
+  box-shadow: -2px -2px 8px rgba(255, 255, 255, 1), -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+  place-items: center;
+  color: black;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Exo 2", sans-serif;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.Tlainnya a:hover {
+  box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1), inset -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(0.98);
+}
+
+.container .judul {
+  border-radius: 25px;
+  margin-top: 50px;
+  padding: 30px;
+  background: #f2f3f7;
+  box-shadow: -2px -2px 8px rgba(255, 255, 255, 1), -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+.container .judul h5 {
+  text-align: center;
+}
+
+/* Card image */
+.card1 {
+  position: relative;
+  padding: 0;
+  margin: 0 !important;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 280px;
+  max-height: 340px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card1 .card1-image {
+  width: 100%;
+  max-height: 340px;
+}
+
+.card1 .card1-image img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+}
+
+.card1 .card1-content {
+  position: absolute;
+  bottom: -180px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  min-height: 140px;
+  width: 100%;
+  transition: bottom 0.4s ease-in;
+  box-shadow: 0 -10px 10px rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card1:hover .card1-content {
+  bottom: 0px;
+}
+
+.card1:hover .card1-content h4,
+.card1:hover .card1-content h5,
+.card1:hover .card1-content h6 {
+  transform: translateY(10px);
+  opacity: 1;
+}
+
+.card1 .card1-content h4,
+.card1 .card1-content h5,
+.card1 .card1-content h6 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  transition: 0.8s;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-40px);
+  transition-delay: 0.2s;
+}
+
+.card1 .card1-content h5,
+.card1 .card1-content h6 {
+  transition: 0.5s;
+  font-weight: 200;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.card1 .card1-content .social-icons {
+  list-style: none;
+  padding: 0;
+}
+
+.card1 .card1-content .social-icons li {
+  margin: 10px;
+  transition: 0.5s;
+  transition-delay: calc(0.15s * var(--i));
+  transform: translateY(50px);
+}
+
+.card1:hover .card1-content .social-icons li {
+  transform: translateY(20px);
+}
+
+.card1 .card1-content .social-icons li a {
+  color: #fff;
+}
+
+.card1 .card1-content .social-icons li a span {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 991.5px) {
+  .container {
+    margin-top: 20px;
+  }
+
+  .container .row .col-lg-4 {
+    margin: 20px 0px;
+  }
+}
+
+/* Card image */

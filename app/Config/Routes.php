@@ -35,6 +35,12 @@ $routes->setAutoRoute(true);
 //Home Controller
 $routes->get('/', 'Home::index');
 
+//Auth Controller
+$routes->get('/Login', 'Auth\AuthController::index');
+$routes->get('/auth', 'Auth\AuthController::login');
+
+
+//Dashboard Controller
 $routes->get('/Dashboard', 'Dashboard\DashboardController::index');
 
 
